@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panitan Mongkolsawat — Architect & Construction Project Manager</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  :root {
+    --bg:#03060f;--bg2:#060b18;--bg3:#0a1122;--bg4:#0f192e;
+    --s:rgba(99,179,255,0.04);--s2:rgba(99,179,255,0.08);
+    --b:rgba(99,179,255,0.09);--b2:rgba(99,179,255,0.18);
+    --tx:#e8f0fc;--tx2:#7f9abf;--tx3:#3d5270;
+    --gold:#3b9eff;--gold2:#7ec8ff;--gg:rgba(59,158,255,0.12);
+    --teal:#38d9c0;--warm:#5b8fff;
+    --fd:'Josefin Sans',sans-serif;--fb:'DM Sans',sans-serif;
+    --r:10px;--rl:18px;
+  }
+  [data-theme="light"]{
+    --bg:#f0f5ff;--bg2:#ffffff;--bg3:#e3ecfa;--bg4:#cfddf5;
+    --s:rgba(30,90,200,0.04);--s2:rgba(30,90,200,0.07);
+    --b:rgba(30,90,200,0.1);--b2:rgba(30,90,200,0.18);
+    --tx:#0a1628;--tx2:#3a5480;--tx3:#8aaad0;
+    --gold:#1a6fd4;--gold2:#2b8cef;--gg:rgba(26,111,212,0.1);
+    --teal:#0ea595;--warm:#3872e0;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--fb);background:var(--bg);color:var(--tx);line-height:1.6;overflow-x:hidden;transition:background .3s,color .3s}
+  ::-webkit-scrollbar{width:5px}
+  ::-webkit-scrollbar-track{background:var(--bg)}
+  ::-webkit-scrollbar-thumb{background:var(--bg4);border-radius:3px}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:64px;background:rgba(3,6,15,0.92);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--b);transition:background .3s}
+  [data-theme="light"] nav{background:rgba(240,245,255,0.92)}
+  .nav-logo{font-family:var(--fd);font-size:20px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--tx);text-decoration:none}
+  .nav-logo em{color:var(--gold);font-style:italic}
+  .nav-links{display:flex;gap:4px;list-style:none}
+  .nav-links a{color:var(--tx3);text-decoration:none;font-size:13px;font-weight:400;padding:6px 13px;border-radius:99px;transition:all .2s}
+  .nav-links a:hover{color:var(--tx);background:var(--s2)}
+  .nav-links a.active{color:var(--gold2)}
+  .nav-right{display:flex;align-items:center;gap:10px}
+  .theme-btn{width:36px;height:36px;border-radius:50%;border:1px solid var(--b);background:var(--s);color:var(--tx3);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:13px;transition:all .2s}
+  .theme-btn:hover{color:var(--tx);border-color:var(--b2);background:var(--s2)}
+  .btn-hire{display:inline-flex;align-items:center;gap:7px;background:var(--gold);color:#080d18;padding:8px 20px;border-radius:99px;font-family:var(--fb);font-size:13px;font-weight:600;border:none;cursor:pointer;text-decoration:none;transition:all .2s;letter-spacing:.3px}
+  .btn-hire:hover{background:var(--gold2);transform:translateY(-1px)}
+  .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+  .hamburger span{display:block;width:22px;height:1.5px;background:var(--tx2);border-radius:2px;transition:all .3s}
+
+  /* MOBILE MENU */
+  .mob-menu{display:none;position:fixed;inset:0;z-index:190;background:var(--bg);flex-direction:column;padding:80px 40px 40px;gap:6px}
+  .mob-menu.open{display:flex}
+  .mob-menu a{font-family:var(--fd);font-size:30px;font-weight:600;color:var(--tx);text-decoration:none;padding:14px 0;border-bottom:1px solid var(--b);letter-spacing:.5px;transition:color .2s}
+  .mob-menu a:hover{color:var(--gold2)}
+
+  /* HERO */
+  .hero{min-height:100vh;display:grid;grid-template-columns:1fr 400px;padding-top:64px;position:relative;overflow:hidden}
+  .hero-left{display:flex;flex-direction:column;justify-content:center;padding:80px 56px 80px 72px;position:relative;z-index:1}
+  .hero-right{position:relative;background:var(--bg3);display:flex;align-items:flex-end;justify-content:center;overflow:hidden}
+  .hero-right::after{content:'';position:absolute;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(59,158,255,0.18) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;z-index:0}
+  .hero-right::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,var(--bg) 0%,transparent 50%);z-index:1}
+  .hero-photo-box{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:160px;font-weight:700;color:var(--gold);opacity:.15;letter-spacing:-6px;user-select:none;position:relative;z-index:0}
+  .hero-bg-txt{position:absolute;bottom:-10px;left:20px;font-family:var(--fd);font-size:180px;font-weight:700;color:var(--tx);opacity:.018;line-height:1;white-space:nowrap;pointer-events:none;letter-spacing:-8px}
+  .hero-tag{display:inline-flex;align-items:center;gap:8px;background:var(--gg);border:1px solid rgba(59,158,255,0.25);color:var(--gold2);padding:6px 14px;border-radius:99px;font-size:11.5px;font-weight:500;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:28px;animation:fup .6s ease both}
+  .ldot{width:6px;height:6px;border-radius:50%;background:var(--teal);animation:blink 2s ease infinite}
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+  h1.hname{font-family:var(--fd);font-size:clamp(48px,6vw,82px);font-weight:700;line-height:.95;letter-spacing:4px;text-transform:uppercase;color:var(--tx);margin-bottom:8px;animation:fup .6s ease .1s both}
+  h1.hname em{color:var(--gold);font-style:italic;display:block}
+  .hrole{font-size:12.5px;letter-spacing:3px;text-transform:uppercase;color:var(--tx3);font-weight:500;margin-bottom:26px;animation:fup .6s ease .2s both}
+  .hbio{font-size:15px;color:var(--tx2);line-height:1.75;font-weight:300;max-width:470px;margin-bottom:38px;animation:fup .6s ease .25s both}
+  .h-acts{display:flex;gap:12px;flex-wrap:wrap;animation:fup .6s ease .3s both}
+  .btn-p{background:var(--gold);color:#080d18;padding:12px 26px;border-radius:99px;font-size:14px;font-weight:600;border:none;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;letter-spacing:.3px;transition:all .25s}
+  .btn-p:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(59,158,255,.3)}
+  .btn-o{background:transparent;color:var(--tx);padding:12px 26px;border-radius:99px;font-size:14px;font-weight:500;border:1px solid var(--b2);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .25s}
+  .btn-o:hover{background:var(--s2);transform:translateY(-2px)}
+  .hstats{display:flex;gap:32px;flex-wrap:wrap;margin-top:48px;padding-top:36px;border-top:1px solid var(--b);animation:fup .6s ease .4s both}
+  .hs{display:flex;flex-direction:column;gap:3px}
+  .hsn{font-family:var(--fd);font-size:32px;font-weight:700;color:var(--tx);line-height:1;letter-spacing:2px}
+  .hsn span{color:var(--gold)}
+  .hsl{font-size:12px;color:var(--tx3);letter-spacing:.4px}
+  @keyframes fup{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+  /* SECTIONS */
+  .sec{max-width:1100px;margin:0 auto;padding:88px 48px}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:14px}
+  .eyebrow::before{content:'';display:block;width:22px;height:1px;background:var(--gold)}
+  h2.stitle{font-family:var(--fd);font-size:clamp(34px,4.5vw,54px);font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--tx);line-height:1.05;margin-bottom:10px}
+  h2.stitle em{color:var(--gold);font-style:italic}
+  .sdesc{font-size:15px;color:var(--tx2);font-weight:300;max-width:480px;line-height:1.7}
+  .shd{margin-bottom:52px}
+
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:52px;align-items:start}
+  .aimg-wrap{position:relative}
+  .aimg-ph{width:100%;aspect-ratio:3/4;border-radius:var(--rl);background:var(--bg3);border:1px solid var(--b);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:90px;font-weight:700;color:var(--gold);opacity:.3;letter-spacing:-2px}
+  .abadge{position:absolute;bottom:24px;right:-18px;background:var(--bg2);border:1px solid var(--b2);border-radius:var(--r);padding:14px 18px;display:flex;align-items:center;gap:10px;font-size:13px;box-shadow:0 12px 40px rgba(0,0,0,.4)}
+  .abadge-ico{width:36px;height:36px;border-radius:8px;background:var(--gg);border:1px solid rgba(59,158,255,.22);display:flex;align-items:center;justify-content:center;color:var(--gold2);font-size:15px}
+  .abadge strong{font-weight:600;color:var(--tx);display:block;font-size:13px}
+  .abadge span{color:var(--tx3);font-size:11px;display:block;margin-top:1px}
+  .ac p{font-size:15px;color:var(--tx2);line-height:1.8;font-weight:300;margin-bottom:16px}
+  .ainfo{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}
+  .ai{background:var(--s);border:1px solid var(--b);border-radius:var(--r);padding:14px 16px}
+  .ail{font-size:10px;text-transform:uppercase;letter-spacing:1.2px;color:var(--tx3);margin-bottom:4px}
+  .aiv{font-size:13px;color:var(--tx);font-weight:500}
+  .aiv.hi{color:var(--gold2)}
+
+  /* EXPERIENCE TIMELINE */
+  .exp-tl{position:relative;padding-left:36px}
+  .exp-tl::before{content:'';position:absolute;left:0;top:8px;bottom:8px;width:1px;background:var(--b2)}
+  .exp-e{position:relative;padding:0 0 52px 36px}
+  .exp-e:last-child{padding-bottom:0}
+  .exp-e::before{content:'';position:absolute;left:-5px;top:7px;width:10px;height:10px;border-radius:50%;background:var(--bg3);border:2px solid var(--gold)}
+  .exp-e.cur::before{background:var(--gold);box-shadow:0 0 0 4px var(--gg)}
+  .exp-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:4px}
+  .exp-role{font-family:var(--fd);font-size:18px;font-weight:600;color:var(--tx);letter-spacing:2px;text-transform:uppercase}
+  .exp-per{font-size:12px;color:var(--tx3);white-space:nowrap;background:var(--s);border:1px solid var(--b);padding:4px 12px;border-radius:99px;flex-shrink:0}
+  .exp-co{font-size:13px;color:var(--gold2);font-weight:400;margin-bottom:14px;display:flex;align-items:center;gap:6px}
+  .exp-co i{font-size:11px}
+  .exp-ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+  .exp-ul li{font-size:14px;color:var(--tx2);font-weight:300;padding-left:16px;position:relative;line-height:1.65}
+  .exp-ul li::before{content:'—';position:absolute;left:0;color:var(--gold);font-size:12px;top:2px}
+  .exp-ul li b{color:var(--tx);font-weight:500}
+  .etags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+  .tag{font-size:11px;font-weight:500;padding:3px 10px;border-radius:99px;background:var(--bg3);color:var(--tx3);border:1px solid var(--b);letter-spacing:.2px}
+  .tag.g{background:var(--gg);color:var(--gold2);border-color:rgba(59,158,255,.22)}
+  .tag.t{background:rgba(94,205,196,.08);color:var(--teal);border-color:rgba(94,205,196,.2)}
+  .tag.w{background:rgba(212,132,106,.08);color:var(--warm);border-color:rgba(212,132,106,.2)}
+
+  /* SKILLS */
+  .sk-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .sk-card{background:var(--s);border:1px solid var(--b);border-radius:var(--rl);padding:28px;transition:all .2s}
+  .sk-card:hover{border-color:var(--b2);background:var(--s2)}
+  .sk-hd{display:flex;align-items:center;gap:12px;margin-bottom:22px}
+  .sk-ico{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:17px}
+  .sk-ico.g{background:var(--gg);color:var(--gold2);border:1px solid rgba(59,158,255,.22)}
+  .sk-ico.t{background:rgba(94,205,196,.08);color:var(--teal);border:1px solid rgba(94,205,196,.2)}
+  .sk-ico.w{background:rgba(212,132,106,.08);color:var(--warm);border:1px solid rgba(212,132,106,.2)}
+  .sk-ico.n{background:var(--s2);color:var(--tx2);border:1px solid var(--b2)}
+  .sk-ttl{font-family:var(--fd);font-size:15px;font-weight:700;color:var(--tx);letter-spacing:2.5px;text-transform:uppercase}
+  .sk-items{display:flex;flex-direction:column;gap:12px}
+  .si{display:flex;flex-direction:column;gap:5px}
+  .si-top{display:flex;justify-content:space-between;font-size:13px}
+  .si-n{color:var(--tx2)}
+  .si-p{color:var(--tx3);font-size:11px}
+  .si-bg{height:3px;background:var(--bg4);border-radius:2px;overflow:hidden}
+  .si-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--gold),var(--teal))}
+  .pill-cloud{display:flex;flex-wrap:wrap;gap:8px}
+  .pill{font-size:12px;color:var(--tx2);padding:5px 12px;border-radius:99px;background:var(--s2);border:1px solid var(--b);transition:all .2s;cursor:default}
+  .pill:hover{color:var(--gold2);border-color:rgba(59,158,255,.32);background:var(--gg)}
+
+  /* EDUCATION */
+  .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .edu-card{background:var(--s);border:1px solid var(--b);border-radius:var(--rl);padding:22px 24px;display:flex;gap:16px;align-items:flex-start;transition:all .2s}
+  .edu-card:hover{border-color:var(--b2);background:var(--s2)}
+  .edu-ico{width:44px;height:44px;border-radius:12px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:19px}
+  .edu-ico.g{background:var(--gg);color:var(--gold2);border:1px solid rgba(59,158,255,.22)}
+  .edu-ico.t{background:rgba(94,205,196,.08);color:var(--teal);border:1px solid rgba(94,205,196,.2)}
+  .edu-ico.w{background:rgba(212,132,106,.08);color:var(--warm);border:1px solid rgba(212,132,106,.2)}
+  .edu-deg{font-family:var(--fd);font-size:15px;font-weight:600;color:var(--tx);margin-bottom:4px;letter-spacing:1.8px;text-transform:uppercase}
+  .edu-sch{font-size:13px;margin-bottom:4px}
+  .edu-note{font-size:12px;color:var(--tx3);font-weight:300}
+  .edu-yr{font-size:11px;color:var(--tx3);margin-top:6px}
+
+  /* CONTACT */
+  .ct-wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:start}
+  .ct-lede h2{font-family:var(--fd);font-size:clamp(36px,4.5vw,58px);font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--tx);line-height:1.05;margin-bottom:16px}
+  .ct-lede h2 em{color:var(--gold);font-style:italic}
+  .ct-lede p{font-size:15px;color:var(--tx2);line-height:1.7;font-weight:300}
+  .ct-cards{display:flex;flex-direction:column;gap:10px;margin-top:28px}
+  .ct-card{display:flex;align-items:center;gap:14px;padding:15px 18px;background:var(--s);border:1px solid var(--b);border-radius:var(--r);color:var(--tx);text-decoration:none;font-size:14px;transition:all .2s}
+  .ct-card:hover{border-color:var(--b2);background:var(--s2);transform:translateX(4px)}
+  .ct-ico{width:36px;height:36px;border-radius:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:14px}
+  .ct-ico.g{background:var(--gg);color:var(--gold2);border:1px solid rgba(59,158,255,.22)}
+  .ct-ico.t{background:rgba(94,205,196,.08);color:var(--teal);border:1px solid rgba(94,205,196,.2)}
+  .ct-ico.w{background:rgba(212,132,106,.08);color:var(--warm);border:1px solid rgba(212,132,106,.2)}
+  .ct-ico.b{background:rgba(100,160,240,.08);color:#64a0f0;border:1px solid rgba(100,160,240,.2)}
+  .ct-lb{font-weight:500;display:block;font-size:13px}
+  .ct-vl{font-size:12px;color:var(--tx3);display:block;margin-top:1px}
+  .ct-ar{color:var(--tx3);font-size:10px;margin-left:auto}
+  .ct-form{background:var(--s);border:1px solid var(--b);border-radius:var(--rl);padding:32px}
+  .cf-ttl{font-family:var(--fd);font-size:16px;font-weight:700;color:var(--tx);margin-bottom:24px;letter-spacing:3px;text-transform:uppercase}
+  .cf-fld{margin-bottom:16px}
+  .cf-lbl{font-size:11px;text-transform:uppercase;letter-spacing:1.2px;color:var(--tx3);display:block;margin-bottom:8px}
+  .cf-fld input,.cf-fld textarea,.cf-fld select{width:100%;background:var(--bg3);border:1px solid var(--b);border-radius:var(--r);padding:11px 15px;color:var(--tx);font-family:var(--fb);font-size:14px;outline:none;transition:border-color .2s;resize:none}
+  .cf-fld input:focus,.cf-fld textarea:focus,.cf-fld select:focus{border-color:var(--gold)}
+  .cf-fld select option{background:var(--bg2);color:var(--tx)}
+  .cf-btn{width:100%;background:var(--gold);color:#080d18;border:none;padding:13px 24px;border-radius:99px;font-family:var(--fb);font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;letter-spacing:.3px;transition:all .2s}
+  .cf-btn:hover{background:var(--gold2);transform:translateY(-2px)}
+
+  footer{text-align:center;padding:36px 40px;border-top:1px solid var(--b);font-size:13px;color:var(--tx3)}
+  footer em{color:var(--gold);font-style:normal}
+
+  .reveal{opacity:0;transform:translateY(22px);transition:all .65s ease}
+  .reveal.visible{opacity:1;transform:none}
+  .reveal.d1{transition-delay:.12s}
+  .reveal.d2{transition-delay:.22s}
+
+  /* PROJECTS */
+  .proj-filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:40px}
+  .pf-btn{font-size:12px;font-weight:500;padding:7px 18px;border-radius:99px;background:var(--s);border:1px solid var(--b);color:var(--tx3);cursor:pointer;transition:all .2s;letter-spacing:.3px;font-family:var(--fb)}
+  .pf-btn:hover{border-color:var(--b2);color:var(--tx);background:var(--s2)}
+  .pf-btn.active{background:var(--gg);color:var(--gold2);border-color:rgba(59,158,255,.32)}
+  .proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .proj-card{background:var(--bg2);border:1px solid var(--b);border-radius:var(--rl);overflow:hidden;cursor:pointer;transition:all .3s;position:relative}
+  .proj-card:hover{border-color:var(--b2);transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,.35)}
+  .proj-card.hidden{display:none}
+  .pimg{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;transition:transform .5s}
+  .proj-card:hover .pimg{transform:scale(1.04)}
+  .pimg-wrap{overflow:hidden;position:relative}
+  .pimg-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(13,12,10,.6) 0%,transparent 55%);pointer-events:none}
+  .ptag{position:absolute;top:14px;left:14px;font-size:10.5px;font-weight:500;padding:4px 11px;border-radius:99px;letter-spacing:.5px;text-transform:uppercase;backdrop-filter:blur(8px);z-index:1}
+  .ptag.design{background:rgba(59,158,255,.15);color:var(--gold2);border:1px solid rgba(59,158,255,.32)}
+  .ptag.cm{background:rgba(94,205,196,.15);color:var(--teal);border:1px solid rgba(94,205,196,.25)}
+  .pbody{padding:18px 20px 20px}
+  .ptitle{font-family:var(--fd);font-size:16px;font-weight:700;color:var(--tx);margin-bottom:6px;letter-spacing:2px;text-transform:uppercase;line-height:1.25}
+  .pmeta{display:flex;gap:14px;font-size:11.5px;color:var(--tx3);margin-bottom:10px;flex-wrap:wrap}
+  .pmeta span{display:flex;align-items:center;gap:5px}
+  .pmeta i{font-size:10px}
+  .pdesc{font-size:13px;color:var(--tx2);line-height:1.6;font-weight:300}
+  .proj-cta{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;color:var(--gold2);margin-top:12px;letter-spacing:.2px;opacity:.8;transition:opacity .2s}
+  .proj-card:hover .proj-cta{opacity:1}
+
+  @media(max-width:900px){.proj-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:600px){.proj-grid{grid-template-columns:1fr}}
+
+  @media(max-width:900px){
+    .hero{grid-template-columns:1fr;min-height:auto}
+    .hero-right{height:360px}
+    .hero-left{padding:60px 28px 48px}
+    .about-grid,.ct-wrap{grid-template-columns:1fr;gap:32px}
+    .edu-grid,.sk-grid{grid-template-columns:1fr}
+    .abadge{display:none}
+    .sk-card[style*="span 2"]{grid-column:span 1}
+  }
+  @media(max-width:700px){
+    nav{padding:0 20px}
+    .nav-links,.btn-hire{display:none}
+    .hamburger{display:flex}
+    .sec{padding:64px 24px}
+    .hstats{gap:20px}
+    .exp-tl{padding-left:24px}
+    .exp-e{padding-left:24px}
+    .exp-top{flex-direction:column;gap:6px}
+  }
+  @media(max-width:480px){
+    .h-acts{flex-direction:column}
+    .btn-p,.btn-o{width:100%;justify-content:center}
+    .ainfo{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Panitan<em>.</em></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="theme-btn" id="themeBtn"><i class="fa-solid fa-moon" id="themeIco"></i></button>
+    <a href="mailto:panitan.mon@outlook.com" class="btn-hire"><i class="fa-regular fa-envelope"></i> Contact me</a>
+    <button class="hamburger" id="ham"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mob-menu" id="mobMenu">
+  <a href="#about" onclick="cm()">About</a>
+  <a href="#experience" onclick="cm()">Experience</a>
+  <a href="#projects" onclick="cm()">Projects</a>
+  <a href="#skills" onclick="cm()">Skills</a>
+  <a href="#education" onclick="cm()">Education</a>
+  <a href="#contact" onclick="cm()">Contact</a>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-bg-txt">ARCHITECT</div>
+    <div class="hero-tag"><div class="ldot"></div>Licensed Associate Architect · No.13559</div>
+    <h1 class="hname">Panitan<em>Mongkolsawat</em></h1>
+    <p class="hrole">Construction Project Management &amp; Architecture</p>
+    <p class="hbio">Over 15 years leading residential, commercial, and hospitality projects from concept to completion — on scope, on time, on budget.</p>
+    <div class="h-acts">
+      <a href="#experience" class="btn-p"><i class="fa-solid fa-briefcase"></i> View experience</a>
+      <a href="#contact" class="btn-o"><i class="fa-solid fa-paper-plane"></i> Get in touch</a>
+    </div>
+    <div class="hstats">
+      <div class="hs"><div class="hsn">15<span>+</span></div><div class="hsl">Years experience</div></div>
+      <div class="hs"><div class="hsn">~100</div><div class="hsl">Branches / month</div></div>
+      <div class="hs"><div class="hsn">77<span>+</span></div><div class="hsl">Rooms renovated</div></div>
+      <div class="hs"><div class="hsn">6</div><div class="hsl">Companies served</div></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-photo-box">PM</div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="sec">
+  <div class="shd reveal">
+    <span class="eyebrow">About</span>
+    <h2 class="stitle">Who I <em>am</em></h2>
+  </div>
+  <div class="about-grid">
+    <div class="aimg-wrap reveal">
+      <div class="aimg-ph">PM</div>
+      <div class="abadge">
+        <div class="abadge-ico"><i class="fa-solid fa-building-columns"></i></div>
+        <div>
+          <strong>Assoc. Architect No.13559</strong>
+          <span>Licensed in Thailand</span>
+        </div>
+      </div>
+    </div>
+    <div class="ac reveal d1">
+      <p>I'm Panitan Mongkolsawat — an Architect and Construction Project Manager with over <strong style="color:var(--tx);font-weight:500">15 years</strong> directing projects across residential, commercial, and hospitality sectors.</p>
+      <p>From the first sketch to final handover, I orchestrate every phase: cost control, scheduling, contractor negotiation, quality assurance, and stakeholder alignment. I hold a Licensed Associate Architect credential and an MBA from Thammasat University.</p>
+      <p>Most recently, I led <strong style="color:var(--tx);font-weight:500">PUNTHAI Coffee's nationwide rollout</strong> (≈100 branches/month) at PTG Energy PLC., and directed a full hotel room and restaurant renovation for <strong style="color:var(--tx);font-weight:500">LEBUA Hotels & Resorts</strong>.</p>
+      <div class="ainfo">
+        <div class="ai"><div class="ail">Location</div><div class="aiv">Yannawa, Sathon, Bangkok</div></div>
+        <div class="ai"><div class="ail">Email</div><div class="aiv hi">panitan.mon@outlook.com</div></div>
+        <div class="ai"><div class="ail">Phone</div><div class="aiv">(+66) 089-612-4998</div></div>
+        <div class="ai"><div class="ail">Status</div><div class="aiv" style="color:var(--teal)">Open to opportunities ✦</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="sec" style="padding-top:0">
+  <div class="shd reveal">
+    <span class="eyebrow">Career</span>
+    <h2 class="stitle">Experience</h2>
+    <p class="sdesc">A 15-year track record across F&amp;B, hospitality, commercial, and residential construction.</p>
+  </div>
+  <div class="exp-tl">
+
+    <div class="exp-e cur reveal">
+      <div class="exp-top">
+        <div class="exp-role">Head of Engineering — F&amp;B Business</div>
+        <span class="exp-per">Sep 2025 – Jan 2026</span>
+      </div>
+      <div class="exp-co"><i class="fa-solid fa-bolt"></i> PTG Energy PLC.</div>
+      <ul class="exp-ul">
+        <li>Supervised opening of <b>PUNTHAI Coffee</b> branches nationwide — design, cost estimation, construction planning, and final handover.</li>
+        <li>Consistently delivered approximately <b>100 branches per month</b> within scheduled timeframes.</li>
+      </ul>
+      <div class="etags">
+        <span class="tag g">F&amp;B Rollout</span><span class="tag g">Cost Estimation</span><span class="tag t">Project Handover</span><span class="tag">Construction Planning</span>
+      </div>
+    </div>
+
+    <div class="exp-e reveal">
+      <div class="exp-top">
+        <div class="exp-role">Construction Project Manager</div>
+        <span class="exp-per">Mar 2025 – May 2025</span>
+      </div>
+      <div class="exp-co"><i class="fa-solid fa-hotel"></i> LEBUA Hotels and Resorts</div>
+      <ul class="exp-ul">
+        <li>Directed renovation of <b>77 hotel rooms</b> and <b>4 restaurants</b> (1,000+ sq.m.) from pre-construction to delivery.</li>
+        <li>Coordinated architects, engineers, contractors, and stakeholders to meet project goals.</li>
+        <li>Established project costs, resources, and schedules; controlled quality standards, compliance, and reporting.</li>
+      </ul>
+      <div class="etags">
+        <span class="tag g">Hotel Renovation</span><span class="tag g">Contract Admin</span><span class="tag t">MEP Coordination</span><span class="tag">Quality Control</span>
+      </div>
+    </div>
+
+    <div class="exp-e reveal">
+      <div class="exp-top">
+        <div class="exp-role">Assistant Project Manager</div>
+        <span class="exp-per">May 2018 – Jul 2023</span>
+      </div>
+      <div class="exp-co"><i class="fa-solid fa-building"></i> Project Planning Services PLC.</div>
+      <ul class="exp-ul">
+        <li>Managed multiple construction projects across residential, commercial, and mixed-use sectors.</li>
+        <li>Oversaw project schedules, budgets, quality, and safety compliance.</li>
+        <li>Led contractor negotiations, resource allocation, and risk management.</li>
+        <li>Produced <b>BOQs</b>, progress reports, and procurement documentation.</li>
+        <li>Coordinated multi-disciplinary teams and resolved technical and design issues.</li>
+      </ul>
+      <div class="etags">
+        <span class="tag g">Project Management</span><span class="tag g">BOQ</span><span class="tag t">Risk Management</span><span class="tag t">Procurement</span><span class="tag">Mixed-Use</span>
+      </div>
+    </div>
+
+    <div class="exp-e reveal">
+      <div class="exp-top">
+        <div class="exp-role">Architect</div>
+        <span class="exp-per">May 2016 – Apr 2018</span>
+      </div>
+      <div class="exp-co"><i class="fa-solid fa-drafting-compass"></i> DERSYN STUDIO Co., Ltd.</div>
+      <ul class="exp-ul">
+        <li>Designed and managed houses, residences, showrooms, hotels, and community malls.</li>
+        <li>Oversaw construction drawings, permits, material specifications, and site inspections.</li>
+      </ul>
+      <div class="etags">
+        <span class="tag g">Architectural Design</span><span class="tag">Showroom</span><span class="tag">Community Mall</span><span class="tag">Site Inspection</span>
+      </div>
+    </div>
+
+    <div class="exp-e reveal">
+      <div class="exp-top">
+        <div class="exp-role">Architect</div>
+        <span class="exp-per">Feb 2014 – Mar 2016</span>
+      </div>
+      <div class="exp-co"><i class="fa-solid fa-drafting-compass"></i> KANGWAN STUDIO Co., Ltd.</div>
+      <ul class="exp-ul">
+        <li>Designed residences, hotels, and religious buildings with detailed <b>Thai-style</b> architectural elements.</li>
+        <li>Coordinated stakeholders and managed compliance and construction documentation.</li>
+      </ul>
+      <div class="etags">
+        <span class="tag g">Thai Architecture</span><span class="tag">Religious Buildings</span><span class="tag">Design Coordination</span>
+      </div>
+    </div>
+
+    <div class="exp-e reveal">
+      <div class="exp-top">
+        <div class="exp-role">Architect</div>
+        <span class="exp-per">Aug 2008 – Dec 2013</span>
+      </div>
+      <div class="exp-co"><i class="fa-solid fa-landmark"></i> Dearborn Street Design International Co., Ltd.</div>
+      <ul class="exp-ul">
+        <li>Specialised in <b>museum restoration</b> and historical structure inspections.</li>
+        <li>Assisted in project documentation, drawing production, and design issue resolution.</li>
+      </ul>
+      <div class="etags">
+        <span class="tag w">Heritage Restoration</span><span class="tag w">Museum Design</span><span class="tag">Historic Structures</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="sec" style="padding-top:0">
+  <div class="shd reveal">
+    <span class="eyebrow">Portfolio</span>
+    <h2 class="stitle">Selected <em>Projects</em></h2>
+    <p class="sdesc">A curated selection of design and construction management work spanning 15+ years.</p>
+  </div>
+  <div class="proj-filters reveal">
+    <button class="pf-btn active" data-filter="all">All Projects</button>
+    <button class="pf-btn" data-filter="design">Design</button>
+    <button class="pf-btn" data-filter="cm">Construction Management</button>
+  </div>
+  <div class="proj-grid">
+
+    <div class="proj-card reveal" data-cat="cm">
+      <div class="pimg-wrap">
+        <span class="ptag cm">Construction Mgmt</span>
+        <img class="pimg" src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800&q=80" alt="Punthai Coffee" loading="lazy">
+      </div>
+      <div class="pbody">
+        <div class="ptitle">Punthai Coffee — Nationwide Rollout</div>
+        <div class="pmeta">
+          <span><i class="fa-solid fa-location-dot"></i> Thailand (Nationwide)</span>
+          <span><i class="fa-regular fa-calendar"></i> 2025</span>
+        </div>
+        <div class="pdesc">Led construction management for ≈100 branch openings per month — covering design coordination, cost estimation, and final handover for PTG Energy PLC.</div>
+        <div class="proj-cta"><i class="fa-solid fa-arrow-right"></i> F&amp;B Retail · Construction Management</div>
+      </div>
+    </div>
+
+    <div class="proj-card reveal" data-cat="cm">
+      <div class="pimg-wrap">
+        <span class="ptag cm">Construction Mgmt</span>
+        <img class="pimg" src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80" alt="Langsuan Village" loading="lazy">
+      </div>
+      <div class="pbody">
+        <div class="ptitle">Langsuan Village</div>
+        <div class="pmeta">
+          <span><i class="fa-solid fa-location-dot"></i> Bangkok</span>
+          <span><i class="fa-regular fa-calendar"></i> 2018</span>
+        </div>
+        <div class="pdesc">Construction oversight for a large-scale mixed-use high-rise development — scheduling, quality control, and multi-contractor coordination for Project Planning Services PLC.</div>
+        <div class="proj-cta"><i class="fa-solid fa-arrow-right"></i> Mixed-Use · High-Rise</div>
+      </div>
+    </div>
+
+    <div class="proj-card reveal" data-cat="cm">
+      <div class="pimg-wrap">
+        <span class="ptag cm">Construction Mgmt</span>
+        <img class="pimg" src="https://images.unsplash.com/photo-1569587112025-0d460e81a126?w=800&q=80" alt="Grand Palace Ticket Office" loading="lazy">
+      </div>
+      <div class="pbody">
+        <div class="ptitle">Grand Palace — New Ticket Office</div>
+        <div class="pmeta">
+          <span><i class="fa-solid fa-location-dot"></i> Bangkok</span>
+          <span><i class="fa-regular fa-calendar"></i> 2020–2021</span>
+        </div>
+        <div class="pdesc">Managed construction of the new visitor ticket building at Wat Phra Kaew, balancing heritage preservation with modern visitor facilities.</div>
+        <div class="proj-cta"><i class="fa-solid fa-arrow-right"></i> Heritage · Civic</div>
+      </div>
+    </div>
+
+    <div class="proj-card reveal" data-cat="cm">
+      <div class="pimg-wrap">
+        <span class="ptag cm">Construction Mgmt</span>
+        <img class="pimg" src="https://images.unsplash.com/photo-1555400082-2f7a5ee20f8c?w=800&q=80" alt="Grand Palace Borom Phiman" loading="lazy">
+      </div>
+      <div class="pbody">
+        <div class="ptitle">Grand Palace — Borom Phiman Restoration</div>
+        <div class="pmeta">
+          <span><i class="fa-solid fa-location-dot"></i> Bangkok</span>
+          <span><i class="fa-regular fa-calendar"></i> 2018–2020</span>
+        </div>
+        <div class="pdesc">Exterior restoration of the Borom Phiman Hall — facade, roofing, and landscaping under strict royal heritage conservation guidelines.</div>
+        <div class="proj-cta"><i class="fa-solid fa-arrow-right"></i> Royal Heritage · Restoration</div>
+      </div>
+    </div>
+
+    <div class="proj-card reveal" data-cat="cm">
+      <div class="pimg-wrap">
+        <span class="ptag cm">Construction Mgmt</span>
+        <img class="pimg" src="https://images.unsplash.com/photo-1519817650390-64a993f9f0f2?w=800&q=80" alt="Sanam Chandra Palace" loading="lazy">
+      </div>
+      <div class="pbody">
+        <div class="ptitle">Sanam Chandra Palace Restoration</div>
+        <div class="pmeta">
+          <span><i class="fa-solid fa-location-dot"></i> Nakhon Pathom</span>
+          <span><i class="fa-regular fa-calendar"></i> 2022–2024</span>
+        </div>
+        <div class="pdesc">Comprehensive restoration of the historic royal palace — structural repairs, Thai architectural finishes, and landscape improvements across multiple buildings.</div>
+        <div class="proj-cta"><i class="fa-solid fa-arrow-right"></i> Royal Palace · Heritage</div>
+      </div>
+    </div>
+
+    <div class="proj-card reveal" data-cat="design">
+      <div class="pimg-wrap">
+        <span class="ptag design">Design</span>
+        <img class="pimg" src="https://images.unsplash.com/photo-1596178065887-1198b6148b2b?w=800&q=80" alt="Tolopoti Hotel Resort" loading="lazy">
+      </div>
+      <div class="pbody">
+        <div class="ptitle">Tolopoti Hotel &amp; Resort</div>
+        <div class="pmeta">
+          <span><i class="fa-solid fa-location-dot"></i> Supanburi</span>
+          <span><i class="fa-regular fa-calendar"></i> 2016–2017</span>
+        </div>
+        <div class="pdesc">Exterior architectural design for a 60-room nature-integrated resort — tropical modern aesthetic with lush landscaping, timber volumes, and generous glazing.</div>
+        <div class="proj-cta"><i class="fa-solid fa-arrow-right"></i> Resort · 60 Rooms · Completed</div>
+      </div>
+    </div>
+
+    <div class="proj-card reveal" data-cat="design">
+      <div class="pimg-wrap">
+        <span class="ptag design">Design</span>
+        <img class="pimg" src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80" alt="Tolopoti Market" loading="lazy">
+      </div>
+      <div class="pbody">
+        <div class="ptitle">Tolopoti Market</div>
+        <div class="pmeta">
+          <span><i class="fa-solid fa-location-dot"></i> Supanburi</span>
+          <span><i class="fa-regular fa-calendar"></i> 2017–2018</span>
+        </div>
+        <div class="pdesc">Exterior design for a 2,000 sq.m. community market — vibrant identity, covered event plaza, and mixed-retail layout encouraging evening street life.</div>
+        <div class="proj-cta"><i class="fa-solid fa-arrow-right"></i> Retail Market · 2,000 sq.m.</div>
+      </div>
+    </div>
+
+    <div class="proj-card reveal" data-cat="design">
+      <div class="pimg-wrap">
+        <span class="ptag design">Design</span>
+        <img class="pimg" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80" alt="Jasmine Resort Sriracha" loading="lazy">
+      </div>
+      <div class="pbody">
+        <div class="ptitle">Jasmine Resort Sriracha</div>
+        <div class="pmeta">
+          <span><i class="fa-solid fa-location-dot"></i> Sriracha, Chonburi</span>
+          <span><i class="fa-regular fa-calendar"></i> 2018–2019</span>
+        </div>
+        <div class="pdesc">Exterior architectural design for a 79-room hotel — contemporary facade with layered metal screening, pool deck, and landscaped courtyard.</div>
+        <div class="proj-cta"><i class="fa-solid fa-arrow-right"></i> Hotel · 79 Rooms · Completed</div>
+      </div>
+    </div>
+
+    <div class="proj-card reveal" data-cat="design">
+      <div class="pimg-wrap">
+        <span class="ptag design">Design</span>
+        <img class="pimg" src="https://images.unsplash.com/photo-1514190051997-0f6f39ca5cde?w=800&q=80" alt="Mali Bar Restaurant" loading="lazy">
+      </div>
+      <div class="pbody">
+        <div class="ptitle">Mali Bar &amp; Restaurant</div>
+        <div class="pmeta">
+          <span><i class="fa-solid fa-location-dot"></i> Sriracha, Chonburi</span>
+          <span><i class="fa-regular fa-calendar"></i> 2018–2019</span>
+        </div>
+        <div class="pdesc">Interior and exterior design for a 700 sq.m. restaurant — botanical palette, green steel-frame facades, marble bar counters, and curated pendant lighting.</div>
+        <div class="proj-cta"><i class="fa-solid fa-arrow-right"></i> Restaurant · 700 sq.m.</div>
+      </div>
+    </div>
+
+    <div class="proj-card reveal" data-cat="design">
+      <div class="pimg-wrap">
+        <span class="ptag design">Design</span>
+        <img class="pimg" src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80" alt="Thanasarn Group" loading="lazy">
+      </div>
+      <div class="pbody">
+        <div class="ptitle">Thanasarn Group Commercial Building</div>
+        <div class="pmeta">
+          <span><i class="fa-solid fa-location-dot"></i> Bangkok</span>
+          <span><i class="fa-regular fa-calendar"></i> 2018–2019</span>
+        </div>
+        <div class="pdesc">Exterior design for a 1,000 sq.m. commercial complex — warm timber cladding, exposed concrete base, and bold vertical louvres creating a strong street presence.</div>
+        <div class="proj-cta"><i class="fa-solid fa-arrow-right"></i> Commercial · 1,000 sq.m.</div>
+      </div>
+    </div>
+
+    <div class="proj-card reveal" data-cat="design">
+      <div class="pimg-wrap">
+        <span class="ptag design">Design</span>
+        <img class="pimg" src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80" alt="Khun Kee House" loading="lazy">
+      </div>
+      <div class="pbody">
+        <div class="ptitle">Khun Kee Residence</div>
+        <div class="pmeta">
+          <span><i class="fa-solid fa-location-dot"></i> Bangna, Bangkok</span>
+          <span><i class="fa-regular fa-calendar"></i> 2017–2018</span>
+        </div>
+        <div class="pdesc">Exterior design for a 650 sq.m. luxury private residence — minimalist white volumes, full-height glazing, open lawn, and private pool integrated into the landscape.</div>
+        <div class="proj-cta"><i class="fa-solid fa-arrow-right"></i> Residential · 650 sq.m.</div>
+      </div>
+    </div>
+
+    <div class="proj-card reveal" data-cat="design">
+      <div class="pimg-wrap">
+        <span class="ptag design">Design</span>
+        <img class="pimg" src="https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=800&q=80" alt="Queen Sirikit Museum of Textiles" loading="lazy">
+      </div>
+      <div class="pbody">
+        <div class="ptitle">Queen Sirikit Museum of Textiles</div>
+        <div class="pmeta">
+          <span><i class="fa-solid fa-location-dot"></i> Bangkok</span>
+          <span><i class="fa-regular fa-calendar"></i> 2008–2011</span>
+        </div>
+        <div class="pdesc">Interior design for the 2,000 sq.m. national textile museum — gallery layouts, display systems, and period-sensitive finishing works within the Grand Palace grounds.</div>
+        <div class="proj-cta"><i class="fa-solid fa-arrow-right"></i> Museum · 2,000 sq.m.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="sec" style="padding-top:0">
+  <div class="shd reveal">
+    <span class="eyebrow">Expertise</span>
+    <h2 class="stitle">Skills &amp; <em>tools</em></h2>
+    <p class="sdesc">Technical software, project management capabilities, and cross-functional strengths.</p>
+  </div>
+  <div class="sk-grid reveal">
+
+    <div class="sk-card">
+      <div class="sk-hd"><div class="sk-ico g"><i class="fa-solid fa-pen-ruler"></i></div><div class="sk-ttl">Design &amp; Drafting</div></div>
+      <div class="sk-items">
+        <div class="si"><div class="si-top"><span class="si-n">AutoCAD</span><span class="si-p">Advanced</span></div><div class="si-bg"><div class="si-fill" style="width:95%"></div></div></div>
+        <div class="si"><div class="si-top"><span class="si-n">SketchUp</span><span class="si-p">Advanced</span></div><div class="si-bg"><div class="si-fill" style="width:92%"></div></div></div>
+        <div class="si"><div class="si-top"><span class="si-n">V-Ray for SketchUp</span><span class="si-p">Intermediate</span></div><div class="si-bg"><div class="si-fill" style="width:62%"></div></div></div>
+        <div class="si"><div class="si-top"><span class="si-n">Photoshop</span><span class="si-p">Advanced</span></div><div class="si-bg"><div class="si-fill" style="width:88%"></div></div></div>
+        <div class="si"><div class="si-top"><span class="si-n">Illustrator</span><span class="si-p">Intermediate</span></div><div class="si-bg"><div class="si-fill" style="width:60%"></div></div></div>
+      </div>
+    </div>
+
+    <div class="sk-card">
+      <div class="sk-hd"><div class="sk-ico t"><i class="fa-solid fa-chart-gantt"></i></div><div class="sk-ttl">Project &amp; Data Tools</div></div>
+      <div class="sk-items">
+        <div class="si"><div class="si-top"><span class="si-n">Microsoft Office</span><span class="si-p">Advanced</span></div><div class="si-bg"><div class="si-fill" style="width:95%"></div></div></div>
+        <div class="si"><div class="si-top"><span class="si-n">Microsoft Project</span><span class="si-p">Advanced</span></div><div class="si-bg"><div class="si-fill" style="width:85%"></div></div></div>
+        <div class="si"><div class="si-top"><span class="si-n">Power BI</span><span class="si-p">Intermediate</span></div><div class="si-bg"><div class="si-fill" style="width:62%"></div></div></div>
+        <div class="si"><div class="si-top"><span class="si-n">Jira / Trello / ClickUp</span><span class="si-p">Intermediate</span></div><div class="si-bg"><div class="si-fill" style="width:65%"></div></div></div>
+      </div>
+    </div>
+
+    <div class="sk-card" style="grid-column:span 2">
+      <div class="sk-hd"><div class="sk-ico n"><i class="fa-solid fa-layer-group"></i></div><div class="sk-ttl">Core Competencies</div></div>
+      <div class="pill-cloud">
+        <span class="pill">Project Planning</span><span class="pill">Cost Control</span><span class="pill">Schedule Control</span>
+        <span class="pill">Site Supervision</span><span class="pill">Risk Management</span><span class="pill">Team Leadership</span>
+        <span class="pill">Feasibility Study</span><span class="pill">Value Engineering</span><span class="pill">Contract Administration</span>
+        <span class="pill">MEP Design</span><span class="pill">BOQ / Cost Estimation</span><span class="pill">Design Coordination</span>
+        <span class="pill">Vendor &amp; Contractor Mgmt</span><span class="pill">Procurement</span><span class="pill">Stakeholder Management</span>
+        <span class="pill">Root Cause Analysis</span><span class="pill">Conflict Resolution</span><span class="pill">Process Improvement</span>
+        <span class="pill">Strategic Planning</span><span class="pill">Cross-functional Teams</span><span class="pill">Space Optimisation</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="sec" style="padding-top:0">
+  <div class="shd reveal">
+    <span class="eyebrow">Background</span>
+    <h2 class="stitle">Education &amp; <em>Certifications</em></h2>
+  </div>
+  <div class="edu-grid reveal">
+    <div class="edu-card">
+      <div class="edu-ico g"><i class="fa-solid fa-graduation-cap"></i></div>
+      <div>
+        <div class="edu-deg">Master of Business Administration</div>
+        <div class="edu-sch" style="color:var(--gold2)">Thammasat University, Bangkok</div>
+        <div class="edu-note">Business strategy, finance &amp; management</div>
+        <div class="edu-yr">2022</div>
+      </div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-ico g"><i class="fa-solid fa-compass-drafting"></i></div>
+      <div>
+        <div class="edu-deg">Bachelor of Architecture</div>
+        <div class="edu-sch" style="color:var(--gold2)">Silpakorn University, Bangkok</div>
+        <div class="edu-note">Architecture design, structures &amp; urban planning</div>
+        <div class="edu-yr">2008</div>
+      </div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-ico t"><i class="fa-solid fa-id-card"></i></div>
+      <div>
+        <div class="edu-deg">Associate Architect License</div>
+        <div class="edu-sch" style="color:var(--teal)">No. 13559 · Council of Architects Thailand</div>
+        <div class="edu-note">Licensed to practise architecture in Thailand</div>
+      </div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-ico w"><i class="fa-solid fa-chart-line"></i></div>
+      <div>
+        <div class="edu-deg">Investment Consultant — Plain P1</div>
+        <div class="edu-sch" style="color:var(--warm)">ATI (Association of Thai Investment)</div>
+        <div class="edu-note">Financial markets &amp; investment products</div>
+      </div>
+    </div>
+    <div class="edu-card" style="grid-column:span 2">
+      <div class="edu-ico g"><i class="fa-brands fa-google"></i></div>
+      <div>
+        <div class="edu-deg">Project Management Professional Certificate</div>
+        <div class="edu-sch" style="color:var(--gold2)">Google · Coursera</div>
+        <div class="edu-note">Agile methodologies, project lifecycle, stakeholder communication, and risk frameworks</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="sec" style="padding-top:0;padding-bottom:100px">
+  <div class="ct-wrap">
+    <div class="reveal">
+      <span class="eyebrow">Get in touch</span>
+      <div class="ct-lede">
+        <h2>Let's build something <em>great</em>.</h2>
+        <p>Available for project management roles, architectural consultancy, and construction oversight opportunities in Thailand and beyond.</p>
+      </div>
+      <div class="ct-cards">
+        <a href="mailto:panitan.mon@outlook.com" class="ct-card">
+          <div class="ct-ico g"><i class="fa-regular fa-envelope"></i></div>
+          <div><span class="ct-lb">Email</span><span class="ct-vl">panitan.mon@outlook.com</span></div>
+          <i class="fa-solid fa-chevron-right ct-ar"></i>
+        </a>
+        <a href="tel:+66896124998" class="ct-card">
+          <div class="ct-ico t"><i class="fa-solid fa-phone"></i></div>
+          <div><span class="ct-lb">Phone</span><span class="ct-vl">(+66) 089-612-4998</span></div>
+          <i class="fa-solid fa-chevron-right ct-ar"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/panitan-mongkolsawat/" target="_blank" class="ct-card">
+          <div class="ct-ico b"><i class="fa-brands fa-linkedin-in"></i></div>
+          <div><span class="ct-lb">LinkedIn</span><span class="ct-vl">linkedin.com/in/panitan-mongkolsawat</span></div>
+          <i class="fa-solid fa-chevron-right ct-ar"></i>
+        </a>
+        <div class="ct-card" style="cursor:default">
+          <div class="ct-ico w"><i class="fa-solid fa-location-dot"></i></div>
+          <div><span class="ct-lb">Location</span><span class="ct-vl">Yannawa, Sathon, Bangkok 10120</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="ct-form reveal d1">
+      <div class="cf-ttl">Send a message</div>
+      <div class="cf-fld">
+        <label class="cf-lbl">Your name</label>
+        <input type="text" placeholder="Name">
+      </div>
+      <div class="cf-fld">
+        <label class="cf-lbl">Email address</label>
+        <input type="email" placeholder="email@example.com">
+      </div>
+      <div class="cf-fld">
+        <label class="cf-lbl">Project type</label>
+        <select>
+          <option value="" disabled selected>Select…</option>
+          <option>Residential Construction</option>
+          <option>Commercial Construction</option>
+          <option>Hospitality / Hotel</option>
+          <option>F&amp;B / Retail Fit-out</option>
+          <option>Heritage / Restoration</option>
+          <option>Architectural Design</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="cf-fld">
+        <label class="cf-lbl">Message</label>
+        <textarea rows="4" placeholder="Tell me about your project…"></textarea>
+      </div>
+      <button class="cf-btn" id="sendBtn" onclick="handleSend()"><i class="fa-solid fa-paper-plane"></i> Send message</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Designed with care · <em>Panitan Mongkolsawat</em> · Bangkok, Thailand · 2026</p>
+</footer>
+
+<script>
+  const html=document.documentElement;
+  const themeBtn=document.getElementById('themeBtn');
+  const themeIco=document.getElementById('themeIco');
+  const saved=localStorage.getItem('pm-theme');
+  if(saved){html.setAttribute('data-theme',saved);themeIco.className=saved==='dark'?'fa-solid fa-moon':'fa-solid fa-sun';}
+  themeBtn.addEventListener('click',()=>{
+    const dark=html.getAttribute('data-theme')==='dark';
+    html.setAttribute('data-theme',dark?'light':'dark');
+    themeIco.className=dark?'fa-solid fa-sun':'fa-solid fa-moon';
+    localStorage.setItem('pm-theme',dark?'light':'dark');
+  });
+  document.getElementById('ham').addEventListener('click',()=>document.getElementById('mobMenu').classList.toggle('open'));
+  function cm(){document.getElementById('mobMenu').classList.remove('open');}
+  const revEls=document.querySelectorAll('.reveal');
+  const ro=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.08});
+  revEls.forEach(el=>ro.observe(el));
+  const secs=document.querySelectorAll('section[id]');
+  const nls=document.querySelectorAll('.nav-links a');
+  const so=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){nls.forEach(a=>a.classList.remove('active'));const a=document.querySelector(`.nav-links a[href="#${e.target.id}"]`);if(a)a.classList.add('active');}});},{threshold:0.35});
+  secs.forEach(s=>so.observe(s));
+  // Project filters
+  document.querySelectorAll('.pf-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      document.querySelectorAll('.pf-btn').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      const f=btn.getAttribute('data-filter');
+      document.querySelectorAll('.proj-card').forEach(card=>{
+        if(f==='all'||card.getAttribute('data-cat')===f){
+          card.classList.remove('hidden');
+        }else{
+          card.classList.add('hidden');
+        }
+      });
+    });
+  });
+
+  function handleSend(){
+    const btn=document.getElementById('sendBtn');
+    const orig=btn.innerHTML;
+    btn.innerHTML='<i class="fa-solid fa-check"></i> Sent — thank you!';
+    btn.style.background='var(--teal)';
+    setTimeout(()=>{btn.innerHTML=orig;btn.style.background='';},3000);
+  }
+</script>
+</body>
+</html>

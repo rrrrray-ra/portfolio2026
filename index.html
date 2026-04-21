@@ -19,14 +19,7 @@
     --fd:'Josefin Sans',sans-serif;--fb:'DM Sans',sans-serif;
     --r:10px;--rl:18px;
   }
-  [data-theme="light"]{
-    --bg:#f0f5ff;--bg2:#ffffff;--bg3:#e3ecfa;--bg4:#cfddf5;
-    --s:rgba(30,90,200,0.04);--s2:rgba(30,90,200,0.07);
-    --b:rgba(30,90,200,0.1);--b2:rgba(30,90,200,0.18);
-    --tx:#0a1628;--tx2:#3a5480;--tx3:#8aaad0;
-    --gold:#1a6fd4;--gold2:#2b8cef;--gg:rgba(26,111,212,0.1);
-    --teal:#0ea595;--warm:#3872e0;
-  }
+  
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{font-family:var(--fb);background:var(--bg);color:var(--tx);line-height:1.6;overflow-x:hidden;transition:background .3s,color .3s}
@@ -36,7 +29,7 @@
 
   /* NAV */
   nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:64px;background:rgba(3,6,15,0.92);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--b);transition:background .3s}
-  [data-theme="light"] nav{background:rgba(240,245,255,0.92)}
+  
   .nav-logo{font-family:var(--fd);font-size:20px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--tx);text-decoration:none}
   .nav-logo em{color:var(--gold);font-style:italic}
   .nav-links{display:flex;gap:4px;list-style:none}
@@ -44,8 +37,7 @@
   .nav-links a:hover{color:var(--tx);background:var(--s2)}
   .nav-links a.active{color:var(--gold2)}
   .nav-right{display:flex;align-items:center;gap:10px}
-  .theme-btn{width:36px;height:36px;border-radius:50%;border:1px solid var(--b);background:var(--s);color:var(--tx3);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:13px;transition:all .2s}
-  .theme-btn:hover{color:var(--tx);border-color:var(--b2);background:var(--s2)}
+  
   .btn-hire{display:inline-flex;align-items:center;gap:7px;background:var(--gold);color:#080d18;padding:8px 20px;border-radius:99px;font-family:var(--fb);font-size:13px;font-weight:600;border:none;cursor:pointer;text-decoration:none;transition:all .2s;letter-spacing:.3px}
   .btn-hire:hover{background:var(--gold2);transform:translateY(-1px)}
   .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
@@ -266,7 +258,7 @@
     <li><a href="#contact">Contact</a></li>
   </ul>
   <div class="nav-right">
-    <button class="theme-btn" id="themeBtn"><i class="fa-solid fa-moon" id="themeIco"></i></button>
+    
     <a href="mailto:panitan.mon@outlook.com" class="btn-hire"><i class="fa-regular fa-envelope"></i> Contact me</a>
     <button class="hamburger" id="ham"><span></span><span></span><span></span></button>
   </div>
@@ -818,16 +810,7 @@
 
 <script>
   const html=document.documentElement;
-  const themeBtn=document.getElementById('themeBtn');
-  const themeIco=document.getElementById('themeIco');
-  const saved=localStorage.getItem('pm-theme');
-  if(saved){html.setAttribute('data-theme',saved);themeIco.className=saved==='dark'?'fa-solid fa-moon':'fa-solid fa-sun';}
-  themeBtn.addEventListener('click',()=>{
-    const dark=html.getAttribute('data-theme')==='dark';
-    html.setAttribute('data-theme',dark?'light':'dark');
-    themeIco.className=dark?'fa-solid fa-sun':'fa-solid fa-moon';
-    localStorage.setItem('pm-theme',dark?'light':'dark');
-  });
+  
   document.getElementById('ham').addEventListener('click',()=>document.getElementById('mobMenu').classList.toggle('open'));
   function cm(){document.getElementById('mobMenu').classList.remove('open');}
   const revEls=document.querySelectorAll('.reveal');
